@@ -13,7 +13,7 @@ import org.springframework.context.ApplicationContext;
  */
 @Slf4j
 @SpringBootApplication
-@ServletComponentScan(basePackages = "org.clever")
+@ServletComponentScan
 //@MapperScan(basePackages = "org.clever.core.mapper")
 public class StartApp {
 
