@@ -11,5 +11,15 @@
 
     <artifactId>clever-core-model</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>org.clever</groupId>
+            <artifactId>clever-common-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>
