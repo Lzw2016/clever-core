@@ -1,8 +1,8 @@
-package org.cleverframe.core.entity;
+package org.clever.core.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.cleverframe.common.model.entity.IdEntity;
+import org.clever.common.model.entity.IdEntity;
 
 import java.util.Date;
 

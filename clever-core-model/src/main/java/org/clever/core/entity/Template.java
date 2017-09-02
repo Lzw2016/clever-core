@@ -1,9 +1,9 @@
-package org.cleverframe.core.entity;
+package org.clever.core.entity;
 
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.cleverframe.common.model.entity.DataEntity;
+import org.clever.common.model.entity.DataEntity;
 
 /**
  * 模版数据表

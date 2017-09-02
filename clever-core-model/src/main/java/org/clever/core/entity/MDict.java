@@ -1,8 +1,9 @@
-package org.cleverframe.core.entity;
+package org.clever.core.entity;
 
 
 import lombok.Data;
-import org.cleverframe.common.model.entity.DataEntity;
+import lombok.EqualsAndHashCode;
+import org.clever.common.model.entity.DataEntity;
 
 /**
  * 树结构字典
@@ -10,6 +11,7 @@ import org.cleverframe.common.model.entity.DataEntity;
  * 作者：LiZW <br/>
  * 创建时间：2016-5-19 15:12 <br/>
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class MDict extends DataEntity {
     /**
