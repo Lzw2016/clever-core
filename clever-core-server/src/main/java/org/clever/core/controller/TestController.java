@@ -1,9 +1,10 @@
 package org.clever.core.controller;
 
+import org.clever.core.entity.Config;
+import org.clever.core.mapper.ConfigMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * 作者：lzw <br/>
@@ -12,8 +13,11 @@ import java.util.List;
 @RestController
 public class TestController {
 
+    @Autowired
+    private ConfigMapper configMapper;
+
     @GetMapping("/")
-    public List<String> test() {
-        throw new RuntimeException("123");
+    public Config test() {
+        return configMapper.selectByPrimaryKey(399L);
     }
 }
