@@ -6,12 +6,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ApplicationContext;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * 应用启动类
  * Created by lzw on 2017/2/25.
  */
 @Slf4j
+@EnableSwagger2
 @SpringBootApplication
 @ServletComponentScan
 //@MapperScan(basePackages = "org.clever.core.mapper")
