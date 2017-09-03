@@ -11,5 +11,11 @@
 
     <artifactId>clever-core-client</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.clever</groupId>
+            <artifactId>clever-core-model</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
