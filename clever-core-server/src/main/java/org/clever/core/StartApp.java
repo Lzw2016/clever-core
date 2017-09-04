@@ -6,6 +6,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.TimeZone;
@@ -15,7 +16,7 @@ import java.util.TimeZone;
  * Created by lzw on 2017/2/25.
  */
 @Slf4j
-@EnableSwagger2
+@EnableTransactionManagement
 @MapperScan(basePackages = "org.clever.core.mapper")
 @SpringBootApplication(scanBasePackages = {"org.clever"})
 public class StartApp {
