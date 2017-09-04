@@ -2,7 +2,7 @@ package org.clever.core.dto.request;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.clever.common.model.request.BaseRequest;
+import org.clever.common.model.request.QueryByPage;
 
 /**
  * 作者：lzw <br/>
@@ -10,5 +10,5 @@ import org.clever.common.model.request.BaseRequest;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ConfigQueryDto extends BaseRequest {
+public class ConfigQueryDto extends QueryByPage {
 }
