@@ -5,15 +5,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.clever.common.model.entity.DataEntity;
 
-import javax.persistence.Table;
-
 /**
  * 系统配置
  * <p>
  * 作者：LiZW <br/>
  * 创建时间：2016-5-19 14:38 <br/>
  */
-@Table(name = "core_config")
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class Config extends DataEntity {

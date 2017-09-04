@@ -14,6 +14,7 @@ PRIMARY KEY (id)
 
 -------------------------------- IdEntity -------------------------------- */
 
+-- CREATE DATABASE clever-core;
 
 /* ====================================================================================================================
     core_qlscript -- 数据库脚本 SQL查询语句、HQL查询语句
@@ -21,15 +22,10 @@ PRIMARY KEY (id)
 CREATE TABLE core_qlscript
 (
     id              bigint          NOT NULL    auto_increment          COMMENT '编号',
-    company_code    varchar(255)    NOT NULL                            COMMENT '数据所属公司的机构编码',
-    org_code        varchar(255)    NOT NULL                            COMMENT '数据直属机构的编码',
     create_by       varchar(255)    NOT NULL                            COMMENT '创建者',
     create_date     datetime        NOT NULL                            COMMENT '创建时间',
     update_by       varchar(255)    NOT NULL                            COMMENT '更新者',
     update_date     datetime        NOT NULL                            COMMENT '更新时间',
-    remarks         varchar(255)                                        COMMENT '备注信息',
-    del_flag        char(1)         NOT NULL    DEFAULT '1'             COMMENT '删除标记（1：正常；2：删除；3：审核）',
-    uuid            varchar(36)     NOT NULL                            COMMENT '数据全局标识UUID',
 
     script_type     varchar(10)     NOT NULL    DEFAULT 'SQL'           COMMENT '脚本类型，可取："SQL"、"HQL"',
     script          varchar(18000)  NOT NULL                            COMMENT '脚本，可以使用模版技术拼接',
@@ -49,15 +45,10 @@ CREATE INDEX core_qlscript_name         ON  core_qlscript (name ASC);
 CREATE TABLE core_config
 (
     id              bigint          NOT NULL    auto_increment          COMMENT '编号',
-    company_code    varchar(255)    NOT NULL                            COMMENT '数据所属公司的机构编码',
-    org_code        varchar(255)    NOT NULL                            COMMENT '数据直属机构的编码',
     create_by       varchar(255)    NOT NULL                            COMMENT '创建者',
     create_date     datetime        NOT NULL                            COMMENT '创建时间',
     update_by       varchar(255)    NOT NULL                            COMMENT '更新者',
     update_date     datetime        NOT NULL                            COMMENT '更新时间',
-    remarks         varchar(255)                                        COMMENT '备注信息',
-    del_flag        char(1)         NOT NULL    DEFAULT '1'             COMMENT '删除标记（1：正常；2：删除；3：审核）',
-    uuid            varchar(36)     NOT NULL                            COMMENT '数据全局标识UUID',
 
     config_key      varchar(100)    NOT NULL    UNIQUE                  COMMENT '配置键',
     config_value    varchar(255)    NOT NULL                            COMMENT '配置数据值',
@@ -78,15 +69,10 @@ CREATE TABLE core_config
 CREATE TABLE core_dict
 (
     id              bigint          NOT NULL    auto_increment          COMMENT '编号',
-    company_code    varchar(255)    NOT NULL                            COMMENT '数据所属公司的机构编码',
-    org_code        varchar(255)    NOT NULL                            COMMENT '数据直属机构的编码',
     create_by       varchar(255)    NOT NULL                            COMMENT '创建者',
     create_date     datetime        NOT NULL                            COMMENT '创建时间',
     update_by       varchar(255)    NOT NULL                            COMMENT '更新者',
     update_date     datetime        NOT NULL                            COMMENT '更新时间',
-    remarks         varchar(255)                                        COMMENT '备注信息',
-    del_flag        char(1)         NOT NULL    DEFAULT '1'             COMMENT '删除标记（1：正常；2：删除；3：审核）',
-    uuid            varchar(36)     NOT NULL                            COMMENT '数据全局标识UUID',
 
     dict_key        varchar(100)    NOT NULL                            COMMENT '字典键(显示值)',
     dict_value      varchar(255)    NOT NULL                            COMMENT '字典数据值(隐藏值)',
@@ -106,15 +92,10 @@ CREATE TABLE core_dict
 CREATE TABLE core_mdict
 (
     id              bigint          NOT NULL    auto_increment          COMMENT '编号',
-    company_code    varchar(255)    NOT NULL                            COMMENT '数据所属公司的机构编码',
-    org_code        varchar(255)    NOT NULL                            COMMENT '数据直属机构的编码',
     create_by       varchar(255)    NOT NULL                            COMMENT '创建者',
     create_date     datetime        NOT NULL                            COMMENT '创建时间',
     update_by       varchar(255)    NOT NULL                            COMMENT '更新者',
     update_date     datetime        NOT NULL                            COMMENT '更新时间',
-    remarks         varchar(255)                                        COMMENT '备注信息',
-    del_flag        char(1)         NOT NULL    DEFAULT '1'             COMMENT '删除标记（1：正常；2：删除；3：审核）',
-    uuid            varchar(36)     NOT NULL                            COMMENT '数据全局标识UUID',
 
     parent_id       bigint          NOT NULL                            COMMENT '父级编号,根节点的父级编号是：-1',
     full_path       varchar(255)    NOT NULL    UNIQUE                  COMMENT '树结构的全路径用“-”隔开,包含自己的ID',
@@ -170,15 +151,10 @@ if(修改了父级编号-节点位置发生变化) {
 CREATE TABLE core_template
 (
     id              bigint          NOT NULL    auto_increment          COMMENT '编号',
-    company_code    varchar(255)    NOT NULL                            COMMENT '数据所属公司的机构编码',
-    org_code        varchar(255)    NOT NULL                            COMMENT '数据直属机构的编码',
     create_by       varchar(255)    NOT NULL                            COMMENT '创建者',
     create_date     datetime        NOT NULL                            COMMENT '创建时间',
     update_by       varchar(255)    NOT NULL                            COMMENT '更新者',
     update_date     datetime        NOT NULL                            COMMENT '更新时间',
-    remarks         varchar(255)                                        COMMENT '备注信息',
-    del_flag        char(1)         NOT NULL    DEFAULT '1'             COMMENT '删除标记（1：正常；2：删除；3：审核）',
-    uuid            varchar(36)     NOT NULL                            COMMENT '数据全局标识UUID',
 
     name            varchar(255)    NOT NULL    UNIQUE                  COMMENT '模版名称，不能重复',
     content         MediumText                                          COMMENT '模版内容',
