@@ -3,10 +3,7 @@ package org.clever.core.dto.request;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.clever.common.model.entity.BaseEntity;
 import org.clever.common.model.request.QueryByPage;
-
-import javax.validation.constraints.Pattern;
 
 /**
  * 作者：lzw <br/>
@@ -27,6 +24,5 @@ public class ConfigQueryDto extends QueryByPage {
     private String configGroup;
 
     @ApiModelProperty("是否支持在线配置生效")
-    @Pattern(regexp = "[" + BaseEntity.YES + BaseEntity.NO + "]")
     private String hotSwap;
 }

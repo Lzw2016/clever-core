@@ -1,5 +1,52 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--suppress SqlDialectInspection -->
 <mapper namespace="org.clever.core.mapper.ConfigMapper">
+    <!-- 表core_config(配置表)映射 -->
+    <resultMap id="BaseResultMap" type="org.clever.core.entity.Config">
+        <!-- 编号 -->
+        <id column="id" property="id"/>
+        <!-- 创建者 -->
+        <result column="create_by" property="createBy"/>
+        <!-- 创建时间 -->
+        <result column="create_date" property="createDate"/>
+        <!-- 更新者 -->
+        <result column="update_by" property="updateBy"/>
+        <!-- 更新时间 -->
+        <result column="update_date" property="updateDate"/>
+        <!-- 配置键 -->
+        <result column="config_key" property="configKey"/>
+        <!-- 配置数据值 -->
+        <result column="config_value" property="configValue"/>
+        <!-- 配置组名称 -->
+        <result column="config_group" property="configGroup"/>
+        <!-- 是否支持在线配置生效（0：否；1：是） -->
+        <result column="hot_swap" property="hotSwap"/>
+        <!-- 描述 -->
+        <result column="description" property="description"/>
+        <!-- 排序(升序) -->
+        <result column="sort" property="sort"/>
+    </resultMap>
 
+    <select id="queryConfig" resultMap="BaseResultMap">
+        SELECT * FROM core_config
+        WHERE 1=1
+        <if test="configKey!='' and configKey!=null">
+            AND config_key=#{configKey}
+        </if>
+        <if test="configValue!='' and configValue!=null">
+            AND config_value=#{configValue}
+        </if>
+        <if test="configGroup!='' and configGroup!=null">
+            AND config_group=#{configGroup}
+        </if>
+        <if test="hotSwap!='' and hotSwap!=null">
+            AND hot_swap=#{hotSwap}
+        </if>
+        ORDER BY config_group, sort, config_key
+    </select>
+
+    <select id="getByConfigKey" resultMap="BaseResultMap">
+        SELECT * FROM core_config WHERE config_key=#{configKey}
+    </select>
 
 </mapper>
