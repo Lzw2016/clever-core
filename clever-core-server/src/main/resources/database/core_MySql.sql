@@ -49,11 +49,11 @@ CREATE TABLE core_config
     update_by       varchar(255)    NOT NULL                            COMMENT '更新者',
     update_date     datetime        NOT NULL                            COMMENT '更新时间',
 
-    config_key      varchar(100)    NOT NULL    UNIQUE                  COMMENT '配置键',
+    config_key      varchar(255)    NOT NULL    UNIQUE                  COMMENT '配置键',
     config_value    varchar(255)    NOT NULL                            COMMENT '配置数据值',
-    config_group    varchar(100)                                        COMMENT '配置组名称',
+    config_group    varchar(255)    NOT NULL    DEFAULT 'default'       COMMENT '配置组名称',
     hot_swap        char(1)         NOT NULL                            COMMENT '是否支持在线配置生效（0：否；1：是）',
-    description     varchar(500)    NOT NULL                            COMMENT '描述',
+    description     varchar(500)                                        COMMENT '描述',
     sort            int             NOT NULL    DEFAULT 0               COMMENT '排序(升序)',
     PRIMARY KEY (id)
 ) COMMENT = '配置表';
