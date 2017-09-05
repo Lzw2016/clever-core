@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--suppress SqlDialectInspection -->
+<mapper namespace="org.clever.core.mapper.DictMapper">
+    <!-- 表core_dict(字典表)映射 -->
+    <resultMap id="BaseResultMap" type="org.clever.core.entity.Dict">
+        <!-- 编号 -->
+        <id column="id" property="id"/>
+        <!-- 创建者 -->
+        <result column="create_by" property="createBy"/>
+        <!-- 创建时间 -->
+        <result column="create_date" property="createDate"/>
+        <!-- 更新者 -->
+        <result column="update_by" property="updateBy"/>
+        <!-- 更新时间 -->
+        <result column="update_date" property="updateDate"/>
+        <!-- 字典键(显示值) -->
+        <result column="dict_key" property="dictKey"/>
+        <!-- 字典数据值(隐藏值) -->
+        <result column="dict_value" property="dictValue"/>
+        <!-- 字典分类 -->
+        <result column="dict_type" property="dictType"/>
+        <!-- 描述 -->
+        <result column="description" property="description"/>
+        <!-- 排序(升序) -->
+        <result column="sort" property="sort"/>
+    </resultMap>
+
+
+</mapper>

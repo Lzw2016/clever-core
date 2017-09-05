@@ -5,15 +5,20 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.clever.common.model.entity.DataEntity;
 
+import javax.persistence.Table;
+
 /**
  * 树结构字典
  * <p>
  * 作者：LiZW <br/>
  * 创建时间：2016-5-19 15:12 <br/>
  */
+@Table(name = "core_mdict")
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class MDict extends DataEntity {
+    private static final long serialVersionUID = 1L;
+
     /**
      * 父级编号
      */

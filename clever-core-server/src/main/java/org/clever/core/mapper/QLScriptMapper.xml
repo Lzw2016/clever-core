@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--suppress SqlDialectInspection -->
+<mapper namespace="org.clever.core.mapper.QLScriptMapper">
+    <!-- 表core_qlscript(数据库脚本)映射 -->
+    <resultMap id="BaseResultMap" type="org.clever.core.entity.QLScript">
+        <!-- 编号 -->
+        <id column="id" property="id"/>
+        <!-- 创建者 -->
+        <result column="create_by" property="createBy"/>
+        <!-- 创建时间 -->
+        <result column="create_date" property="createDate"/>
+        <!-- 更新者 -->
+        <result column="update_by" property="updateBy"/>
+        <!-- 更新时间 -->
+        <result column="update_date" property="updateDate"/>
+        <!-- 脚本类型，可取："SQL"、"HQL" -->
+        <result column="script_type" property="scriptType"/>
+        <!-- 脚本，可以使用模版技术拼接 -->
+        <result column="script" property="script"/>
+        <!-- 脚本名称，使用包名称+类名+方法名 -->
+        <result column="name" property="name"/>
+        <!-- 脚本功能说明 -->
+        <result column="description" property="description"/>
+    </resultMap>
+
+
+</mapper>

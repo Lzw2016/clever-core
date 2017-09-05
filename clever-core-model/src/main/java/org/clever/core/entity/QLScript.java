@@ -5,12 +5,15 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.clever.common.model.entity.DataEntity;
 
+import javax.persistence.Table;
+
 /**
  * 数据库脚本
  * <p>
  * 作者：LiZW <br/>
  * 创建时间：2016-5-19 15:16 <br/>
  */
+@Table(name = "core_qlscript")
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class QLScript extends DataEntity {

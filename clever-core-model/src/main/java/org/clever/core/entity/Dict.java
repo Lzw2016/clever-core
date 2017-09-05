@@ -5,12 +5,15 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.clever.common.model.entity.DataEntity;
 
+import javax.persistence.Table;
+
 /**
  * 字典
  * <p>
  * 作者：LiZW <br/>
  * 创建时间：2016-5-19 15:09 <br/>
  */
+@Table(name = "core_dict")
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class Dict extends DataEntity {

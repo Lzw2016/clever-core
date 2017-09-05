@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--suppress SqlDialectInspection -->
+<mapper namespace="org.clever.core.mapper.MDictMapper">
+    <!-- 表core_mdict(多级字典表)映射 -->
+    <resultMap id="BaseResultMap" type="org.clever.core.entity.MDict">
+        <!-- 编号 -->
+        <id column="id" property="id"/>
+        <!-- 创建者 -->
+        <result column="create_by" property="createBy"/>
+        <!-- 创建时间 -->
+        <result column="create_date" property="createDate"/>
+        <!-- 更新者 -->
+        <result column="update_by" property="updateBy"/>
+        <!-- 更新时间 -->
+        <result column="update_date" property="updateDate"/>
+        <!-- 父级编号,根节点的父级编号是：-1 -->
+        <result column="parent_id" property="parentId"/>
+        <!-- 树结构的全路径用“-”隔开,包含自己的ID -->
+        <result column="full_path" property="fullPath"/>
+        <!-- 字典名称 -->
+        <result column="mdict_key" property="mdictKey"/>
+        <!-- 字典数据值 -->
+        <result column="mdict_value" property="mdictValue"/>
+        <!-- 字典类型 -->
+        <result column="mdict_type" property="mdictType"/>
+        <!-- 描述 -->
+        <result column="description" property="description"/>
+        <!-- 排序(升序) -->
+        <result column="sort" property="sort"/>
+    </resultMap>
+
+
+</mapper>

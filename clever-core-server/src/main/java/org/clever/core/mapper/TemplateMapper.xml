@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--suppress SqlDialectInspection -->
+<mapper namespace="org.clever.core.mapper.TemplateMapper">
+    <!-- 表core_template(模版数据表)映射 -->
+    <resultMap id="BaseResultMap" type="org.clever.core.entity.Template">
+        <!-- 编号 -->
+        <id column="id" property="id"/>
+        <!-- 创建者 -->
+        <result column="create_by" property="createBy"/>
+        <!-- 创建时间 -->
+        <result column="create_date" property="createDate"/>
+        <!-- 更新者 -->
+        <result column="update_by" property="updateBy"/>
+        <!-- 更新时间 -->
+        <result column="update_date" property="updateDate"/>
+        <!-- 模版名称，不能重复 -->
+        <result column="name" property="name"/>
+        <!-- 模版内容 -->
+        <result column="content" property="content"/>
+        <!-- 模版语言 -->
+        <result column="locale" property="locale"/>
+        <!-- 模版说明 -->
+        <result column="description" property="description"/>
+    </resultMap>
+
+
+</mapper>
