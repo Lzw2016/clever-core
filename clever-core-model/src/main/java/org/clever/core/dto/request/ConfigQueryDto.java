@@ -35,6 +35,6 @@ public class ConfigQueryDto extends QueryByPage {
      * 是否支持在线配置生效（0：否；1：是）
      */
     @Pattern(regexp = "[" + BaseEntity.YES + BaseEntity.NO + "]")
-    private Character hotSwap;
+    private String hotSwap;
 
 }

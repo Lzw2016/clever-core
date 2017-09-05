@@ -27,7 +27,7 @@ public class ConfigUpdateDto extends BaseRequest {
      * 是否支持在线配置生效（0：否；1：是）
      */
     @Pattern(regexp = "[" + BaseEntity.YES + BaseEntity.NO + "]")
-    private Character hotSwap;
+    private String hotSwap;
 
     /**
      * 描述

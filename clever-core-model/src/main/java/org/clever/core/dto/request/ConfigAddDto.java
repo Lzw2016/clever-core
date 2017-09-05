@@ -43,7 +43,7 @@ public class ConfigAddDto extends BaseRequest {
      */
     @NotNull
     @Pattern(regexp = "[" + BaseEntity.YES + BaseEntity.NO + "]")
-    private Character hotSwap;
+    private String hotSwap;
 
     /**
      * 描述
