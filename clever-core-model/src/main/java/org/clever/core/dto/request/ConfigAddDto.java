@@ -1,5 +1,6 @@
 package org.clever.core.dto.request;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.clever.common.model.entity.BaseEntity;
@@ -19,41 +20,28 @@ import javax.validation.constraints.Pattern;
 public class ConfigAddDto extends BaseRequest {
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 配置键
-     */
+    @ApiModelProperty("配置键")
     @NotEmpty
     @Length(max = 255)
     private String configKey;
 
-    /**
-     * 配置数据值
-     */
+    @ApiModelProperty("配置数据值")
     @NotEmpty
     @Length(max = 255)
     private String configValue;
 
-    /**
-     * 配置组名称
-     */
+    @ApiModelProperty("配置组名称")
     private String configGroup;
 
-    /**
-     * 是否支持在线配置生效（0：否；1：是）
-     */
+    @ApiModelProperty("是否支持在线配置生效")
     @NotNull
     @Pattern(regexp = "[" + BaseEntity.YES + BaseEntity.NO + "]")
     private String hotSwap;
 
-    /**
-     * 描述
-     */
+    @ApiModelProperty("描述")
     @Length(max = 500)
     private String description;
 
-    /**
-     * 排序(升序)
-     */
+    @ApiModelProperty("排序(升序)")
     private Integer sort;
-
 }
