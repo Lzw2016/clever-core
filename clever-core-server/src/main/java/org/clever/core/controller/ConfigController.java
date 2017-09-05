@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ConfigController extends BaseController {
 
-    @ApiOperation("分页查询")
+    @ApiOperation("分页查询配置")
     @GetMapping("/configs")
     public Page<Config> queryConfig(ConfigQueryDto configQueryDto) {
         return null;
