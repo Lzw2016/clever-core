@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
  * 作者：lzw <br/>
  * 创建时间：2017-09-04 23:30 <br/>
  */
-@Api("配置信息管理")
+@Api(description = "配置信息管理")
 @RequestMapping("/core")
 @RestController
 public class ConfigController extends BaseController {
