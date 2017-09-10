@@ -38,20 +38,20 @@ public class DictController extends BaseController {
     }
 
     @ApiOperation("获取字典")
-    @GetMapping("/dicts/{dictKey}")
-    public Dict getDict(@PathVariable("dictKey") String dictKey) {
-        return dictService.getDict(dictKey);
+    @GetMapping("/dicts/{dictType}/{dictKey}")
+    public Dict getDict(@PathVariable("dictType") String dictType, @PathVariable("dictKey") String dictKey) {
+        return dictService.getDict(dictType, dictKey);
     }
 
     @ApiOperation("更新字典")
-    @PutMapping("/dicts/{dictKey}")
-    public Dict updateDict(@PathVariable("dictKey") String dictKey, @RequestBody @Validated DictUpdateDto dictUpdateDto) {
-        return dictService.updateDict(dictKey, dictUpdateDto);
+    @PutMapping("/dicts/{dictType}/{dictKey}")
+    public Dict updateDict(@PathVariable("dictType") String dictType, @PathVariable("dictKey") String dictKey, @RequestBody @Validated DictUpdateDto dictUpdateDto) {
+        return dictService.updateDict(dictType, dictKey, dictUpdateDto);
     }
 
     @ApiOperation("删除字典")
-    @DeleteMapping("/dicts/{dictKey}")
-    public Dict delDict(@PathVariable("dictKey") String dictKey) {
-        return dictService.delDict(dictKey);
+    @DeleteMapping("/dicts/{dictType}/{dictKey}")
+    public Dict delDict(@PathVariable("dictType") String dictType, @PathVariable("dictKey") String dictKey) {
+        return dictService.delDict(dictType, dictKey);
     }
 }

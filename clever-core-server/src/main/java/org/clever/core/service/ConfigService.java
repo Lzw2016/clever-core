@@ -45,11 +45,7 @@ public class ConfigService extends BaseService {
     }
 
     public Config getConfig(String configKey) {
-        Config config = configMapper.getByConfigKey(configKey);
-        if (config == null) {
-            throw new BusinessException(String.format("配置信息不存在[configKey=%1$s]", configKey));
-        }
-        return config;
+        return configMapper.getByConfigKey(configKey);
     }
 
     @Transactional
@@ -58,9 +54,7 @@ public class ConfigService extends BaseService {
         if (config == null) {
             throw new BusinessException(String.format("配置信息不存在[configKey=%1$s]", configKey));
         }
-        if (!BeanMapper.copyTo(configUpdateDto, config)) {
-            throw new BusinessException("数据转换异常");
-        }
+        BeanMapper.copyTo(configUpdateDto, config);
         configMapper.updateByPrimaryKeySelective(config);
         config = configMapper.selectByPrimaryKey(config.getId());
         return config;

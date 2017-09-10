@@ -27,5 +27,22 @@
         <result column="sort" property="sort"/>
     </resultMap>
 
+    <select id="queryDict" resultMap="BaseResultMap">
+        SELECT * FROM core_dict
+        WHERE 1=1
+        <if test="dictKey!='' and dictKey!=null">
+            AND dict_key=#{dictKey}
+        </if>
+        <if test="dictValue!='' and dictValue!=null">
+            AND dict_value=#{dictValue}
+        </if>
+        <if test="dictType!='' and dictType!=null">
+            AND dict_type=#{dictType}
+        </if>
+        ORDER BY dict_type, sort, dict_key
+    </select>
 
+    <select id="getByDictKey" resultMap="BaseResultMap">
+        SELECT * FROM core_dict WHERE dict_type=#{dictType} AND dict_key=#{dictKey}
+    </select>
 </mapper>
