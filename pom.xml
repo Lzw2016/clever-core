@@ -41,6 +41,7 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--当前项目模块-->
             <dependency>
                 <groupId>org.clever</groupId>
                 <artifactId>clever-core-model</artifactId>
