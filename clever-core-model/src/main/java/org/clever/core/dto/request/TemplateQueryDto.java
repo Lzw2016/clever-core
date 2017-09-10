@@ -1,8 +1,9 @@
 package org.clever.core.dto.request;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.clever.common.model.request.BaseRequest;
+import org.clever.common.model.request.QueryByPage;
 
 /**
  * 作者：lizw <br/>
@@ -10,6 +11,12 @@ import org.clever.common.model.request.BaseRequest;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class TemplateQueryDto extends BaseRequest {
+public class TemplateQueryDto extends QueryByPage {
     private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty("模版名称，不能重复")
+    private String name;
+
+    @ApiModelProperty("模版语言")
+    private String locale;
 }

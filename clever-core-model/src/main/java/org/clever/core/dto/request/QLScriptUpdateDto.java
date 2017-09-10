@@ -1,8 +1,12 @@
 package org.clever.core.dto.request;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.clever.common.model.request.BaseRequest;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.Pattern;
 
 /**
  * 作者：lizw <br/>
@@ -12,4 +16,20 @@ import org.clever.common.model.request.BaseRequest;
 @Data
 public class QLScriptUpdateDto extends BaseRequest {
     private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty("脚本类型，可取：SQL、HQL")
+    @Pattern(regexp = "SQL|HQL")
+    private String scriptType;
+
+    @ApiModelProperty("查询脚本，可以使用模版技术拼接")
+    @Length(max = 18000)
+    private String script;
+
+    @ApiModelProperty("脚本名称，使用包名称+类名+方法名")
+    @Length(max = 100)
+    private String name;
+
+    @ApiModelProperty("脚本功能说明")
+    @Length(max = 1000)
+    private String description;
 }

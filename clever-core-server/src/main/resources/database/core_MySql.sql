@@ -30,7 +30,7 @@ CREATE TABLE core_qlscript
     script_type     varchar(10)     NOT NULL    DEFAULT 'SQL'           COMMENT '脚本类型，可取："SQL"、"HQL"',
     script          varchar(18000)  NOT NULL                            COMMENT '脚本，可以使用模版技术拼接',
     name            varchar(100)    NOT NULL    UNIQUE                  COMMENT '脚本名称，使用包名称+类名+方法名',
-    description     varchar(1000)   NOT NULL                            COMMENT '脚本功能说明',
+    description     varchar(1000)                                       COMMENT '脚本功能说明',
     PRIMARY KEY (id)
 ) COMMENT = '数据库脚本';
 /*------------------------------------------------------------------------------------------------------------------------
@@ -101,8 +101,8 @@ CREATE TABLE core_mdict
     mdict_key       varchar(100)    NOT NULL                            COMMENT '字典名称',
     mdict_value     varchar(255)    NOT NULL                            COMMENT '字典数据值',
     mdict_type      varchar(100)    NOT NULL                            COMMENT '字典类型',
-    description     varchar(500)    NOT NULL                            COMMENT '描述',
-    sort            int             NOT NULL                            COMMENT '排序(升序)',
+    description     varchar(500)                                        COMMENT '描述',
+    sort            int             NOT NULL    DEFAULT 0               COMMENT '排序(升序)',
     PRIMARY KEY (id)
 ) COMMENT = '多级字典表';
 /*------------------------------------------------------------------------------------------------------------------------
