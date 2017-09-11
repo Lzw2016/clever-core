@@ -22,11 +22,6 @@ public class MDictAddDto extends BaseRequest {
     @NotNull
     private Long parentId;
 
-    @ApiModelProperty("树结构的全路径用“-”隔开")
-    @NotEmpty
-    @Length(max = 255)
-    private String fullPath;
-
     @ApiModelProperty("字典名称")
     @NotEmpty
     @Length(max = 100)

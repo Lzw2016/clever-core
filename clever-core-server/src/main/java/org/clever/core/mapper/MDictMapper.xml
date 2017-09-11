@@ -31,5 +31,23 @@
         <result column="sort" property="sort"/>
     </resultMap>
 
-
+    <select id="queryMDict" resultMap="BaseResultMap">
+        SELECT * FROM core_mdict WHERE 1=1
+        <if test="parentId!='' and parentId!=null">
+            AND parent_id=#{parentId}
+        </if>
+        <if test="fullPath!='' and fullPath!=null">
+            AND full_path=#{fullPath}
+        </if>
+        <if test="mdictKey!='' and mdictKey!=null">
+            AND mdict_key=#{mdictKey}
+        </if>
+        <if test="mdictValue!='' and mdictValue!=null">
+            AND mdict_value=#{mdictValue}
+        </if>
+        <if test="mdictType!='' and mdictType!=null">
+            AND mdict_type=#{mdictType}
+        </if>
+        ORDER BY mdict_type, sort, mdict_key
+    </select>
 </mapper>
