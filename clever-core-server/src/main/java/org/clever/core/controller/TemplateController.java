@@ -26,31 +26,31 @@ public class TemplateController extends BaseController {
     private TemplateService templateService;
 
     @ApiOperation("分页查询模版")
-    @GetMapping("/template")
+    @GetMapping("/template" + JSON_SUFFIX)
     public PageInfo<Template> queryTemplate(TemplateQueryDto templateQueryDto) {
         return templateService.queryTemplate(templateQueryDto);
     }
 
     @ApiOperation("新增模版")
-    @PostMapping("/template")
+    @PostMapping("/template" + JSON_SUFFIX)
     public Template addTemplate(@RequestBody @Validated TemplateAddDto templateAddDto) {
         return templateService.addTemplate(templateAddDto);
     }
 
     @ApiOperation("获取模版")
-    @GetMapping("/template/{name}")
+    @GetMapping("/template/{name}" + JSON_SUFFIX)
     public Template getTemplate(@PathVariable("name") String name) {
         return templateService.getTemplate(name);
     }
 
     @ApiOperation("更新模版")
-    @PutMapping("/template/{name}")
+    @PutMapping("/template/{name}" + JSON_SUFFIX)
     public Template updateTemplate(@PathVariable("name") String name, @RequestBody @Validated TemplateUpdateDto templateUpdateDto) {
         return templateService.updateTemplate(name, templateUpdateDto);
     }
 
     @ApiOperation("删除模版")
-    @DeleteMapping("/template/{name}")
+    @DeleteMapping("/template/{name}" + JSON_SUFFIX)
     public Template delTemplate(@PathVariable("name") String name) {
         return templateService.delTemplate(name);
     }

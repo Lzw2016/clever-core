@@ -26,31 +26,31 @@ public class ConfigController extends BaseController {
     public ConfigService configService;
 
     @ApiOperation("分页查询配置")
-    @GetMapping("/configs")
+    @GetMapping("/configs" + JSON_SUFFIX)
     public PageInfo<Config> queryConfig(ConfigQueryDto configQueryDto) {
         return configService.queryConfig(configQueryDto);
     }
 
     @ApiOperation("新增配置")
-    @PostMapping("/configs")
+    @PostMapping("/configs" + JSON_SUFFIX)
     public Config addConfig(@RequestBody @Validated ConfigAddDto configAddDto) {
         return configService.addConfig(configAddDto);
     }
 
     @ApiOperation("获取配置")
-    @GetMapping("/configs/{configKey}")
+    @GetMapping("/configs/{configKey}" + JSON_SUFFIX)
     public Config getConfig(@PathVariable("configKey") String configKey) {
         return configService.getConfig(configKey);
     }
 
     @ApiOperation("更新配置")
-    @PutMapping("/configs/{configKey}")
+    @PutMapping("/configs/{configKey}" + JSON_SUFFIX)
     public Config updateConfig(@PathVariable("configKey") String configKey, @RequestBody @Validated ConfigUpdateDto configUpdateDto) {
         return configService.updateConfig(configKey, configUpdateDto);
     }
 
     @ApiOperation("删除配置")
-    @DeleteMapping("/configs/{configKey}")
+    @DeleteMapping("/configs/{configKey}" + JSON_SUFFIX)
     public Config delConfig(@PathVariable("configKey") String configKey) {
         return configService.delConfig(configKey);
     }

@@ -26,31 +26,31 @@ public class DictController extends BaseController {
     private DictService dictService;
 
     @ApiOperation("分页查询字典")
-    @GetMapping("/dicts")
+    @GetMapping("/dicts" + JSON_SUFFIX)
     public PageInfo<Dict> queryDict(DictQueryDto dictQueryDto) {
         return dictService.queryDict(dictQueryDto);
     }
 
     @ApiOperation("新增字典")
-    @PostMapping("/dicts")
+    @PostMapping("/dicts" + JSON_SUFFIX)
     public Dict addDict(@RequestBody @Validated DictAddDto dictAddDto) {
         return dictService.addDict(dictAddDto);
     }
 
     @ApiOperation("获取字典")
-    @GetMapping("/dicts/{dictType}/{dictKey}")
+    @GetMapping("/dicts/{dictType}/{dictKey}" + JSON_SUFFIX)
     public Dict getDict(@PathVariable("dictType") String dictType, @PathVariable("dictKey") String dictKey) {
         return dictService.getDict(dictType, dictKey);
     }
 
     @ApiOperation("更新字典")
-    @PutMapping("/dicts/{dictType}/{dictKey}")
+    @PutMapping("/dicts/{dictType}/{dictKey}" + JSON_SUFFIX)
     public Dict updateDict(@PathVariable("dictType") String dictType, @PathVariable("dictKey") String dictKey, @RequestBody @Validated DictUpdateDto dictUpdateDto) {
         return dictService.updateDict(dictType, dictKey, dictUpdateDto);
     }
 
     @ApiOperation("删除字典")
-    @DeleteMapping("/dicts/{dictType}/{dictKey}")
+    @DeleteMapping("/dicts/{dictType}/{dictKey}" + JSON_SUFFIX)
     public Dict delDict(@PathVariable("dictType") String dictType, @PathVariable("dictKey") String dictKey) {
         return dictService.delDict(dictType, dictKey);
     }

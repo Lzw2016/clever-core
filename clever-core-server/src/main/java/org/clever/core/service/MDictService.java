@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -39,32 +40,57 @@ public class MDictService extends BaseService {
     @Transactional
     public MDict addMDict(MDictAddDto mDictAddDto) {
         MDict mDict = BeanMapper.mapper(mDictAddDto, MDict.class);
-        if (!Objects.equals(mDict.getParentId(), -1L)) {
+        MDict parentMDict = null;
+        if (!Objects.equals(mDict.getParentId(), MDict.ROOT_PARENT_ID)) {
             // 字典类型要与父节点一致
-            MDict parentMDict = mDictMapper.selectByPrimaryKey(mDict.getParentId());
+            parentMDict = mDictMapper.selectByPrimaryKey(mDict.getParentId());
             if (parentMDict == null) {
                 throw new BusinessException("上级字典不存在");
             }
-            mDict.setFullPath("");
+            if (!Objects.equals(mDict.getMdictType(), parentMDict.getMdictType())) {
+                throw new BusinessException("字典类型要与上级字典一致");
+            }
         }
-
+        mDict.setFullPath("");
         mDict.setCreateBy("");
         mDict.setCreateDate(new Date());
-//        mDict.setFullPath(parentMDict.getFullPath() + MDict.FULL_PATH_SPLIT);
-        return null;
+        mDictMapper.insertSelective(mDict);
+        if (parentMDict != null) {
+            mDict.setFullPath(parentMDict.getFullPath() + MDict.FULL_PATH_SPLIT + mDict.getId());
+        } else {
+            mDict.setFullPath(mDict.getId().toString());
+        }
+        mDictMapper.updateByPrimaryKeySelective(mDict);
+        return mDict;
     }
 
     public MDict getMDict(String fullPath) {
-        return null;
+        return mDictMapper.getByFullPath(fullPath);
+    }
+
+    public List<MDict> findByType(String mdictType) {
+        return mDictMapper.findByType(mdictType);
     }
 
     @Transactional
     public MDict updateMDict(String fullPath, MDictUpdateDto mDictUpdateDto) {
-        return null;
+        MDict mDict = mDictMapper.getByFullPath(fullPath);
+        if (mDict == null) {
+            throw new BusinessException(String.format("字典信息不存在[fullPath=%1$s]", fullPath));
+        }
+        BeanMapper.copyTo(mDictUpdateDto, mDict);
+        mDictMapper.updateByPrimaryKeySelective(mDict);
+        mDict = mDictMapper.selectByPrimaryKey(mDict.getId());
+        return mDict;
     }
 
     @Transactional
     public MDict delMDict(String fullPath) {
-        return null;
+        MDict mDict = mDictMapper.getByFullPath(fullPath);
+        if (mDict == null) {
+            throw new BusinessException(String.format("字典信息不存在[fullPath=%1$s]", fullPath));
+        }
+        mDictMapper.delete(mDict);
+        return mDict;
     }
 }

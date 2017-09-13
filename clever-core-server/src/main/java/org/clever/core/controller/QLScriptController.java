@@ -4,7 +4,6 @@ import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.clever.common.server.controller.BaseController;
-import org.clever.core.dto.request.MDictUpdateDto;
 import org.clever.core.dto.request.QLScriptAddDto;
 import org.clever.core.dto.request.QLScriptQueryDto;
 import org.clever.core.dto.request.QLScriptUpdateDto;
@@ -27,31 +26,31 @@ public class QLScriptController extends BaseController {
     private QLScriptService qlScriptService;
 
     @ApiOperation("分页查询数据库脚本")
-    @GetMapping("/qlscrip")
+    @GetMapping("/qlscrip" + JSON_SUFFIX)
     public PageInfo<QLScript> queryQLScrip(QLScriptQueryDto qlScriptQueryDto) {
         return qlScriptService.queryQLScrip(qlScriptQueryDto);
     }
 
     @ApiOperation("新增数据库脚本")
-    @PostMapping("/qlscrip")
+    @PostMapping("/qlscrip" + JSON_SUFFIX)
     public QLScript addQLScrip(@RequestBody @Validated QLScriptAddDto qlScriptAddDto) {
         return qlScriptService.addQLScrip(qlScriptAddDto);
     }
 
     @ApiOperation("获取数据库脚本")
-    @GetMapping("/qlscrip/{name}")
+    @GetMapping("/qlscrip/{name}" + JSON_SUFFIX)
     public QLScript getQLScrip(@PathVariable("name") String name) {
         return qlScriptService.getQLScrip(name);
     }
 
     @ApiOperation("更新数据库脚本")
-    @PutMapping("/qlscrip/{name}")
+    @PutMapping("/qlscrip/{name}" + JSON_SUFFIX)
     public QLScript updateQLScrip(@PathVariable("name") String name, @RequestBody @Validated QLScriptUpdateDto qlScriptUpdateDto) {
         return qlScriptService.updateQLScrip(name, qlScriptUpdateDto);
     }
 
     @ApiOperation("删除数据库脚本")
-    @DeleteMapping("/qlscrip/{name}")
+    @DeleteMapping("/qlscrip/{name}" + JSON_SUFFIX)
     public QLScript delQLScrip(@PathVariable("name") String name) {
         return qlScriptService.delQLScrip(name);
     }

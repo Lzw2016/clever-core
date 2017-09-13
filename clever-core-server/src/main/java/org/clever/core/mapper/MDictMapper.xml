@@ -50,4 +50,12 @@
         </if>
         ORDER BY mdict_type, sort, mdict_key
     </select>
+
+    <select id="getByFullPath" resultMap="BaseResultMap">
+        SELECT * FROM core_mdict WHERE full_path=#{fullPath}
+    </select>
+
+    <select id="findByType" resultMap="BaseResultMap">
+        SELECT * FROM core_mdict WHERE mdict_type=#{mdictType}
+    </select>
 </mapper>
