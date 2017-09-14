@@ -25,5 +25,18 @@
         <result column="description" property="description"/>
     </resultMap>
 
+    <select id="queryTemplate" resultMap="BaseResultMap">
+        SELECT * FROM core_template WHERE 1=1
+        <if test="name!='' and name!=null">
+            AND `name`=#{name}
+        </if>
+        <if test="locale!='' and locale!=null">
+            AND locale=#{locale}
+        </if>
+        ORDER BY `name`, create_date
+    </select>
 
+    <select id="getByName" resultMap="BaseResultMap">
+        SELECT * FROM core_template WHERE `name`=#{name}
+    </select>
 </mapper>

@@ -25,5 +25,19 @@
         <result column="description" property="description"/>
     </resultMap>
 
+    <select id="queryQLScrip" resultMap="BaseResultMap">
+        SELECT * FROM core_qlscript WHERE 1=1
+        <if test="scriptType!='' and scriptType!=null">
+            AND script_type=#{scriptType}
+        </if>
+        <if test="name!='' and name!=null">
+            AND `name`=#{name}
+        </if>
+        ORDER BY `name`, script_type, create_date
+    </select>
+
+    <select id="getByName" resultMap="BaseResultMap">
+        SELECT * FROM core_qlscript WHERE `name`=#{name}
+    </select>
 
 </mapper>
