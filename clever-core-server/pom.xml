@@ -20,6 +20,11 @@
             <groupId>org.clever</groupId>
             <artifactId>clever-core-model</artifactId>
         </dependency>
+        <!-- spring-xxx -->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session</artifactId>
+        </dependency>
     </dependencies>
 
     <profiles>

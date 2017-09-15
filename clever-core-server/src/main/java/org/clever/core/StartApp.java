@@ -6,8 +6,8 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.TimeZone;
 
@@ -16,6 +16,7 @@ import java.util.TimeZone;
  * Created by lzw on 2017/2/25.
  */
 @Slf4j
+@EnableJdbcHttpSession(maxInactiveIntervalInSeconds = 60 * 10)
 @EnableTransactionManagement
 @MapperScan(basePackages = "org.clever.core.mapper")
 @SpringBootApplication(scanBasePackages = {"org.clever"})
