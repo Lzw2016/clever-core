@@ -60,6 +60,11 @@
             <!--clever-common-->
             <dependency>
                 <groupId>org.clever</groupId>
+                <artifactId>clever-common-utils</artifactId>
+                <version>${clever-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.clever</groupId>
                 <artifactId>clever-common-model</artifactId>
                 <version>${clever-common.version}</version>
             </dependency>
@@ -70,8 +75,8 @@
             </dependency>
             <dependency>
                 <groupId>org.clever</groupId>
-                <artifactId>clever-common-utils</artifactId>
-                <version>${clever-common.version}</version>
+                <artifactId>clever-common-client</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <!-- spring-xxx -->
             <dependency>
@@ -83,10 +88,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

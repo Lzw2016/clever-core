@@ -5,6 +5,8 @@ import org.clever.common.utils.spring.SpringContextHolder;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.ApplicationContext;
 import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -17,6 +19,8 @@ import java.util.TimeZone;
  */
 @Slf4j
 @EnableJdbcHttpSession(maxInactiveIntervalInSeconds = 60 * 10)
+@EnableFeignClients
+@EnableEurekaClient
 @EnableTransactionManagement
 @MapperScan(basePackages = "org.clever.core.mapper")
 @SpringBootApplication(scanBasePackages = {"org.clever"})
