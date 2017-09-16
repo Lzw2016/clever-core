@@ -24,10 +24,10 @@ import java.util.TimeZone;
 @EnableTransactionManagement
 @MapperScan(basePackages = "org.clever.core.mapper")
 @SpringBootApplication(scanBasePackages = {"org.clever"})
-public class StartApp {
+public class CoreStartApp {
     public static void main(String[] args) {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
-        ApplicationContext ctx = SpringApplication.run(StartApp.class, args);
+        ApplicationContext ctx = SpringApplication.run(CoreStartApp.class, args);
         SpringContextHolder.setApplicationContext(ctx);
         log.info("### 服务启动完成 === " + SpringContextHolder.getApplicationContext());
     }
