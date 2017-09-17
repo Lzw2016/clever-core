@@ -8,6 +8,7 @@ import org.clever.core.entity.Config;
 import org.clever.core.fallback.ConfigFallback;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * 作者：lizw <br/>
@@ -21,4 +22,7 @@ public interface ConfigClient extends BaseClient {
      */
     @GetMapping("/configs" + JSON_SUFFIX)
     PageInfo<Config> queryConfig(ConfigQueryDto configQueryDto);
+
+    @GetMapping("/configs/{configKey}" + JSON_SUFFIX)
+    Config getConfig(@PathVariable("configKey") String configKey);
 }

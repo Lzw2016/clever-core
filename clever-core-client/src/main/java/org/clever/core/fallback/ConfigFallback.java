@@ -15,4 +15,9 @@ public class ConfigFallback implements ConfigClient {
     public PageInfo<Config> queryConfig(ConfigQueryDto configQueryDto) {
         return null;
     }
+
+    @Override
+    public Config getConfig(String configKey) {
+        return null;
+    }
 }
